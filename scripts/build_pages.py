@@ -64,6 +64,9 @@ def page(
   <meta name="description" content="{description}" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" href="{p}assets/images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="{p}assets/images/favicon.png" type="image/png" sizes="any" />
+  <link rel="apple-touch-icon" href="{p}assets/images/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+Bengali:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
