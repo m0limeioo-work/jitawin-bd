@@ -1002,13 +1002,21 @@ body {
   background: rgba(15, 23, 42, 0.9);
 }
 
-/* Homepage app section image */
+/* Homepage app section image — keep natural aspect ratio */
 .app-guide-img {
+  display: block;
   width: 100%;
-  max-width: 520px;
+  max-width: 560px;
+  height: auto;
   margin-inline: auto;
   border-radius: 1rem;
   border: 1px solid var(--jw-border);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  object-fit: contain;
+  aspect-ratio: 3 / 2;
+}
+
+#app .col-md-6 > a {
   display: block;
+  line-height: 0;
 }
