@@ -1016,7 +1016,21 @@ body {
   aspect-ratio: 3 / 2;
 }
 
-#app .col-md-6 > a {
+/* Only the image wrapper link — do not style CTA buttons */
+#app a.app-guide-link {
   display: block;
   line-height: 0;
+}
+
+#app .app-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+#app .app-cta-row .btn {
+  line-height: 1.5;
+  white-space: normal;
+  text-align: center;
 }
