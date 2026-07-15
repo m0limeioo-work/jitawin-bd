@@ -5,7 +5,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 CTA_HOME = "https://www.jitaace.work/?pid=jitaaff"
-CTA_SIGNUP = "https://www.jitaace.work/signup?pid=jitaaff"
+CTA_SIGNUP = "../go/"  # register CTAs hop via /go/ then to jitaace signup
+CTA_SIGNUP_FINAL = "https://www.jitaace.work/signup?pid=jitaaff"
 
 NAV = [
     ("games/", "গেমস"),
@@ -1025,7 +1026,7 @@ def build_all():
           <p>CTA বাটন ট্র্যাকড এন্ট্রি ব্যবহার করে:</p>
           <ul>
             <li><code>{CTA_HOME}</code></li>
-            <li><code>{CTA_SIGNUP}</code></li>
+            <li><code>go/</code> → <code>{CTA_SIGNUP_FINAL}</code></li>
           </ul>
           <h2>তথ্যের সঠিকতা</h2>
           <p>বোনাস, লিমিট, VIP সংখ্যা পরিবর্তন হতে পারে। চূড়ান্ত নিয়ম প্ল্যাটফর্মের লাইভ T&amp;C।</p>

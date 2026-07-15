@@ -11,7 +11,7 @@ Configured in `site.config.json` (`siteBase`).
 | Type | URL |
 |------|-----|
 | Home / general CTA | `https://www.jitaace.work/?pid=jitaaff` |
-| Register CTA | `https://www.jitaace.work/signup?pid=jitaaff` |
+| Register CTA | Site hop `go/` → `https://www.jitaace.work/signup?pid=jitaaff` |
 
 ## Source of truth
 

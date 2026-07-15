@@ -40,6 +40,9 @@ def main() -> None:
     for p in sorted(ROOT.rglob("*.html")):
         if "prompt" in p.parts:
             continue
+        # Skip affiliate hop / noindex utility pages
+        if "go" in p.parts and p.name == "index.html" and p.parent.name == "go":
+            continue
         urls.append(str(p.relative_to(ROOT)).replace("\\", "/"))
     urls.sort(key=lambda r: (0 if r == "index.html" else 1, r))
     lines = [
