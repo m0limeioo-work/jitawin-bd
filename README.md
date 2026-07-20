@@ -3,7 +3,7 @@
 Bangladesh market **affiliate content site** for JitaWin (not the official platform).  
 Stack: **HTML + CSS + Bootstrap 5** (CDN). No build step.
 
-**Live / canonical base:** https://m0limeioo-work.github.io/jitawin-bd/  
+**Live / canonical base:** https://jitaacewin.com/  
 Configured in `site.config.json` (`siteBase`).
 
 ## Conversion links (fixed)
@@ -82,5 +82,5 @@ Re-apply after config change:
 ```bash
 python3 scripts/inject_schema.py
 # or override once:
-SITE_BASE=https://m0limeioo-work.github.io/jitawin-bd python3 scripts/inject_schema.py
+SITE_BASE=https://jitaacewin.com python3 scripts/inject_schema.py
 ```

@@ -11,7 +11,7 @@ def site_base() -> str:
     cfg = ROOT / "site.config.json"
     if cfg.exists():
         return str(json.loads(cfg.read_text(encoding="utf-8")).get("siteBase", "")).rstrip("/")
-    return "https://m0limeioo-work.github.io/jitawin-bd"
+    return "https://jitaacewin.com"
 
 def meta(rel: str):
     if rel == "index.html":

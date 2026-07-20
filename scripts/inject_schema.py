@@ -30,7 +30,7 @@ def _load_site_base() -> str:
             return str(data.get("siteBase", "")).rstrip("/")
         except Exception:
             pass
-    return "https://m0limeioo-work.github.io/jitawin-bd"
+    return "https://jitaacewin.com"
 
 SITE_BASE = _load_site_base()
 
