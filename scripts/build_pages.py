@@ -113,13 +113,14 @@ def page(
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-9 content-body">
+{meta_bar()}
 {body}
           <div class="page-cta">
-            <h2>JitaWin-এ এখনই শুরু করুন</h2>
-            <p class="text-muted-jw small mb-3">bKash/Nagad · সর্বনিম্ন ৳১০০ · ১৮+ · Responsible play</p>
+            <h2>পরবর্তী ধাপ</h2>
+            <p class="text-muted-jw small mb-3">নিয়ম বুঝে নিলে প্ল্যাটফর্মে যান · bKash/Nagad · মিন ৳১০০ · ১৮+ · Responsible play</p>
             <div class="d-grid d-sm-flex gap-2 justify-content-center">
-              <a class="btn btn-gold" href="{CTA_SIGNUP}" rel="nofollow sponsored noopener" target="_blank">এখনই রেজিস্টার করুন</a>
-              <a class="btn btn-jw-green" href="{CTA_HOME}" rel="nofollow sponsored noopener" target="_blank">সাইট ভিজিট করুন</a>
+              <a class="btn btn-gold" href="{CTA_SIGNUP}">এজেন্ট লিংকে রেজিস্টার</a>
+              <a class="btn btn-jw-green" href="{CTA_HOME}" rel="nofollow sponsored noopener" target="_blank">প্ল্যাটফর্ম ভিজিট</a>
             </div>
           </div>
         </div>
@@ -210,9 +211,24 @@ def toc(items: list[tuple[str, str]]) -> str:
           </nav>"""
 
 
+VERIFIED = "2026-07-22"
+AUTHOR = "JitaWin BD গাইড টিম"
+
+
+def meta_bar() -> str:
+    """Who / How / last-check signals for people-first &amp; E-E-A-T."""
+    return f"""          <p class="page-meta" role="note">
+            <span><i class="bi bi-person-badge" aria-hidden="true"></i> লেখক: <strong class="text-white">{AUTHOR}</strong></span>
+            <span class="page-meta-sep" aria-hidden="true">·</span>
+            <span><i class="bi bi-calendar3" aria-hidden="true"></i> সর্বশেষ যাচাই: <time datetime="{VERIFIED}">{VERIFIED}</time></span>
+          </p>
+          <p class="page-how small text-muted-jw mb-4">কীভাবে লেখা: প্ল্যাটফর্ম তথ্যসূত্র + বাংলাদেশি প্লেয়ার/এজেন্ট ফ্লো যাচাই। চূড়ান্ত সংখ্যা/শর্ত প্ল্যাটফর্ম T&amp;C-তে দেখুন। এটি তৃতীয় পক্ষের গাইড — অফিসিয়াল সাপোর্ট নয়।</p>
+"""
+
+
 def exp(text: str) -> str:
     return f"""          <aside class="experience-box mt-4">
-            <strong class="text-gold d-block mb-1"><i class="bi bi-pencil-square" aria-hidden="true"></i> আমার নোট</strong>
+            <strong class="text-gold d-block mb-1"><i class="bi bi-pencil-square" aria-hidden="true"></i> সম্পাদক নোট · {AUTHOR}</strong>
             {text}
           </aside>"""
 
@@ -301,13 +317,13 @@ def build_all():
         "JitaWin Sister Brands — JITA PROGRAM &amp; JitaOne Group",
         "Related brands around JitaWin: JITA SPORTS, Owin, JitaOne, HeyJita, JitaBet, JitaGo, Laki55 for Bangladesh market context.",
         "সিস্টার ব্র্যান্ড ও গ্রুপ পরিচিতি",
-        "JitaWin-এর আশেপাশের ব্র্যান্ড ম্যাপ — কনফিউশন কমাতে সংক্ষিপ্ত তালিকা।",
+        "JitaWin-এর আশেপাশের ব্র্যান্ড ম্যাপ — নাম মিলিয়ে ভুল রেজিস্টার এড়াতে।",
         """
-          <p>প্ল্যাটফর্ম ডেটা অনুযায়ী সম্পর্কিত ব্র্যান্ড দুই গ্রুপে দেখা যায়:</p>
+          <p>মার্কেটে JitaWin, JitaAce, JitaBet, Laki55 ইত্যাদি নাম পাশাপাশি ঘোরে। এই পেজের উদ্দেশ্য: <strong class="text-white">কোন গ্রুপে কী আছে</strong> এবং <strong class="text-white">কেন আলাদা অ্যাকাউন্ট/লিংক দরকার</strong> — প্রতিটি সাইটের অফিসিয়াল সাপোর্ট আমরা নই।</p>
           <h2>JITA PROGRAM</h2>
           <ul>
-            <li>JITA SPORTS</li>
-            <li>Owin</li>
+            <li><strong class="text-white">JITA SPORTS</strong> — স্পোর্টস-ফোকাসড ব্র্যান্ড লাইন</li>
+            <li><strong class="text-white">Owin</strong> — প্রোগ্রামের আওতায় সম্পর্কিত ব্র্যান্ড</li>
           </ul>
           <h2>JITAONE GROUP (পার্টনার ব্র্যান্ড)</h2>
           <ul>
@@ -317,11 +333,17 @@ def build_all():
             <li>JitaGo</li>
             <li>Laki55</li>
           </ul>
+          <h2>কেন এটা জানা দরকার</h2>
+          <ul>
+            <li>রেফারেল/বোনাস কোড সাধারণত <strong class="text-white">এক ব্র্যান্ডে বাইন্ড</strong> — অন্য সাইটে পরে লাগানো যায় না</li>
+            <li>ক্রস-ব্র্যান্ড প্রমো (যেমন Laki55 / JitaBet কোলাব) <strong class="text-white">সময়সীমাবদ্ধ</strong></li>
+            <li>ফিশিং সাইট একই রকম নাম ব্যবহার করতে পারে — স্পেলিং ও এন্ট্রি লিংক যাচাই করুন</li>
+          </ul>
           <div class="callout callout-gold">
-            ক্রস-ব্র্যান্ড প্রমোশন (যেমন Laki55 / JitaBet কোলাব) সময়সীমাবদ্ধ হতে পারে — সবসময় প্ল্যাটফর্মের চলমান অফার পেজ চেক করুন। এই সাইট প্রতিটি ব্র্যান্ডের অফিসিয়াল সাপোর্ট নয়।
+            এই গাইড সাইটের রেজিস্টার/ভিজিট CTA JitaWin এজেন্ট লিংকে যায়। অন্য ব্র্যান্ডে খেলতে চাইলে সেই ব্র্যান্ডের নিজস্ব অফিসিয়াল/ট্রাস্টেড এন্ট্রি ব্যবহার করুন।
           </div>
 """
-        + exp("নতুনরা প্রায়ই JitaWin/JitaAce/JitaBet নাম মিশিয়ে ফেলে — রেজিস্টার লিংক ও বোনাস কোড কোন ব্র্যান্ডের, সেটা আগে নিশ্চিত করি।"),
+        + exp("নতুনরা প্রায়ই JitaWin/JitaAce/JitaBet নাম মিশিয়ে ফেলে — রেজিস্টার লিংক ও বোনাস কোড কোন ব্র্যান্ডের, সেটা আগে নিশ্চিত করি। ভুল সাইটে ডিপোজিট করলে আমরা রিফান্ড করাতে পারি না।"),
         [("../", "হোম"), ("index.html", "JitaWin কী?"), ("#", "সিস্টার ব্র্যান্ড")],
         "about-jitawin",
     )
@@ -507,66 +529,174 @@ def build_all():
             </table>
           </div>
 """
+        + """
+          <h2>কোন মেথড কখন বেছে নেবেন?</h2>
+          <ul>
+            <li><strong class="text-white">bKash</strong> — সবচেয়ে কমন; দৈনন্দিন ছোট–মাঝারি ডিপোজিট (আপার ৳25,000)</li>
+            <li><strong class="text-white">Nagad</strong> — এক ট্রানে বেশি পাঠাতে চাইলে (আপার ৳50,000)</li>
+            <li><strong class="text-white">Rocket</strong> — DBBL ইকোসিস্টেম; ব্যাকআপ চ্যানেল (আপার ৳30,000)</li>
+            <li><strong class="text-white">USDT/USDC</strong> — নেটওয়ার্ক সচেতন ইউজার; কিছু বোনাস প্রযোজ্য নয়</li>
+          </ul>
+          <p class="mb-3">প্রতিটি মেথডের ধাপ, কমন ভুল ও উইথড্র নোট আলাদা পেজে বিস্তারিত।</p>
+"""
         + cards("", [
-            ("bkash.html", "bi-phone", "bKash", "৳100–25,000 · Max +1%"),
-            ("nagad.html", "bi-phone", "Nagad", "৳100–50,000 · Max +1%"),
-            ("rocket.html", "bi-phone", "Rocket", "৳100–30,000 · Max +1%"),
+            ("bkash.html", "bi-phone", "bKash", "৳100–25,000 · Max +1% · সবচেয়ে কমন"),
+            ("nagad.html", "bi-phone", "Nagad", "৳100–50,000 · Max +1% · বড় ডিপোজিট"),
+            ("rocket.html", "bi-phone", "Rocket", "৳100–30,000 · Max +1% · DBBL"),
             ("crypto.html", "bi-currency-bitcoin", "USDT / USDC", "BEP-20 / TRC-20 / ERC-20"),
             ("withdrawal-faq.html", "bi-cash-stack", "উইথড্র FAQ", "কেন রিজেক্ট হয়"),
-        ]),
+        ])
+        + exp("মেথড বাছাইয়ে আগে ওয়ালেট অ্যাপ ব্যালেন্স ও দৈনিক লিমিট দেখি; তারপর প্ল্যাটফর্ম লিমিট। ভুল নম্বরে পাঠালে রিফান্ড জটিল হতে পারে।"),
         [("../", "হোম"), ("#", "পেমেন্ট")],
         "payment",
     )
 
-    def pay_method(filename, title_en, name, limit, fee, extra=""):
-        page(
-            f"payment/{filename}",
-            f"JitaWin {name} Deposit &amp; Withdraw Guide Bangladesh",
-            f"How to deposit and withdraw on JitaWin with {name}. Limit {limit}, fee {fee}. Bangladesh mobile payment guide.",
-            f"JitaWin {name} ডিপোজিট ও উইথড্র",
-            f"লিমিট {limit} · ফি {fee} · বাংলাদেশি মোবাইল পেমেন্ট।",
-            f"""
-          <h2>সারাংশ</h2>
+    page(
+        "payment/bkash.html",
+        "JitaWin bKash Deposit &amp; Withdraw Guide Bangladesh",
+        "How to deposit and withdraw on JitaWin with bKash. Limit ৳100–25,000, fee max +1%. Common mistakes for Bangladesh players.",
+        "JitaWin bKash ডিপোজিট ও উইথড্র",
+        "বাংলাদেশের সবচেয়ে কমন চ্যানেল · লিমিট ৳100–25,000 · ফি Max +1%।",
+        toc([("summary", "সারাংশ"), ("steps", "ডিপোজিট ধাপ"), ("mistakes", "কমন ভুল"), ("wd", "উইথড্র"), ("vs", "অন্য মেথড")])
+        + """
+          <h2 id="summary">কেন bKash প্রথমে আসে</h2>
+          <p>অধিকাংশ বাংলাদেশি ইউজারের প্রথম পছন্দ bKash — ওয়ালেট অ্যাপে অভ্যস্ত, মার্চেন্ট/সেন্ড-মানি ফ্লো চেনা। JitaWin-এ ডিপোজিট লিমিট <strong class="text-gold">৳100–25,000</strong>, ফি সাধারণত <strong class="text-white">Max +1%</strong>। মিনিমাম ফ্লোর ৳১০০।</p>
           <ul>
-            <li>মেথড: <strong class="text-white">{name}</strong></li>
-            <li>ডিপোজিট লিমিট: <strong class="text-gold">{limit}</strong></li>
-            <li>ফি: {fee}</li>
-            <li>সাধারণ মিনিমাম ডিপোজিট ফ্লোর: ৳১০০</li>
+            <li>মেথড: <strong class="text-white">bKash</strong></li>
+            <li>উপযুক্ত: দৈনিক ছোট–মাঝারি টপ-আপ, প্রথম টেস্ট ডিপোজিট</li>
+            <li>সীমা: এক ট্রানে ৳25,000-এর বেশি লাগলে <a href="nagad.html">Nagad</a> বিবেচনা করুন</li>
           </ul>
-          <h2>ডিপোজিট ধাপ (সাধারণ)</h2>
+          <h2 id="steps">ডিপোজিট ধাপ (bKash)</h2>
           <figure class="content-figure">
-            <img src="../assets/images/guide-deposit-steps.webp" alt="JitaWin deposit steps illustration for {name}: menu, payment method, form, success" width="1200" height="900" loading="lazy" decoding="async" />
-            <figcaption>সাধারণ ডিপোজিট ফ্লো — বিস্তারিত <a href="index.html">পেমেন্ট ওভারভিউ</a></figcaption>
+            <img src="../assets/images/guide-deposit-steps.webp" alt="JitaWin bKash deposit steps: Deposit menu, choose bKash, amount, success" width="1200" height="900" loading="lazy" decoding="async" />
+            <figcaption>সাধারণ ফ্লো — বিস্তারিত <a href="index.html">পেমেন্ট ওভারভিউ</a></figcaption>
           </figure>
           <ol>
-            <li>প্ল্যাটফর্মে লগইন → Deposit / Wallet</li>
-            <li>{name} সিলেক্ট করুন</li>
-            <li>অ্যামাউন্ট দিন (লিমিটের মধ্যে)</li>
-            <li>চলমান বোনাস থাকলে সিলেক্ট করুন</li>
-            <li>নির্দেশিত নম্বর/ইনভয়েস অনুযায়ী {name} দিয়ে পাঠান</li>
-            <li>ট্রানজেকশন আইডি/স্ক্রিনশট রাখুন</li>
+            <li>প্ল্যাটফর্মে লগইন → <strong class="text-white">Deposit / Wallet</strong></li>
+            <li><strong class="text-white">bKash</strong> সিলেক্ট করুন (Nagad/Rocket গুলিয়ে ফেলবেন না)</li>
+            <li>অ্যামাউন্ট দিন — ৳100–25,000 সীমার মধ্যে</li>
+            <li>চলমান বোনাস থাকলে <strong class="text-white">সিলেক্ট করার আগে</strong> ওয়েজারিং পড়ুন</li>
+            <li>প্ল্যাটফর্মে দেখানো নম্বর/ইনভয়েস অনুযায়ী bKash অ্যাপ থেকে পাঠান</li>
+            <li>TrxID / স্ক্রিনশট রাখুন — ডিলে হলে সাপোর্টে লাগে</li>
           </ol>
-          <h2>উইথড্র নোট</h2>
+          <h2 id="mistakes">bKash-এ কমন ভুল</h2>
           <ul>
-            <li>উইথড্রের আগে নাম + মোবাইল KYC শেষ করুন</li>
-            <li>বোনাস ওয়েজারিং বাকি থাকলে আটকে যেতে পারে</li>
-            <li>সিঙ্গেল উইথড্র রেঞ্জ সাধারণত প্রায় ৳100–25,000 (অ্যাক্টিভিটি/লেভেলভেদে ভিন্ন হতে পারে)</li>
-            <li>ডিপোজিট ও উইথড্র অ্যাকাউন্ট তথ্য মিলিয়ে নিন</li>
+            <li>ভুল মার্চেন্ট/পার্সোনাল নম্বরে পাঠানো</li>
+            <li>রেফারেন্স/নোট ফিল্ড খালি বা ভুল ইনভয়েস</li>
+            <li>প্রোফাইল নাম ও bKash অ্যাকাউন্ট নাম মিল না থাকা (উইথড্রে সমস্যা)</li>
+            <li>বড় বোনাস সিলেক্ট করে ২০–৩০x ওয়েজার না বুঝে নেওয়া</li>
           </ul>
-          {extra}
-          <div class="callout callout-gold">এই সাইট পেমেন্ট প্রসেস করে না — সব ট্রানজেকশন প্ল্যাটফর্মের ভিতরে হয়।</div>
+          <h2 id="wd">উইথড্র (bKash)</h2>
+          <ul>
+            <li>আগে <a href="../guide/verification.html">নাম + মোবাইল KYC</a> শেষ করুন</li>
+            <li>বোনাস ওয়েজারিং বাকি থাকলে আটকে যেতে পারে — <a href="../promotions/wagering-explained.html">ওয়েজারিং গাইড</a></li>
+            <li>সিঙ্গেল উইথড্র রেঞ্জ সাধারণত প্রায় ৳100–25,000</li>
+            <li>যে bKash নম্বরে ডিপোজিট করেছেন, উইথড্রেও মিল রাখার চেষ্টা করুন</li>
+          </ul>
+          <h2 id="vs">bKash vs Nagad vs Rocket</h2>
+          <p>bKash = কভারেজ ও অভ্যাস। বেশি অ্যামাউন্ট একসাথে → <a href="nagad.html">Nagad (৳50k)</a>। DBBL ইউজার → <a href="rocket.html">Rocket</a>। এই সাইট পেমেন্ট প্রসেস করে না।</p>
+          <div class="callout callout-gold">সব ট্রানজেকশন প্ল্যাটফর্মের ভিতরে হয় — আমরা ওয়ালেট/ডিপোজিট অপারেট করি না।</div>
 """
-            + exp(f"{name}-এ প্রথমবার ছোট অ্যামাউন্ট দিয়ে টেস্ট করি; বড় বোনাস সিলেক্টের আগে ওয়েজারিং হিসাব।"),
-            [("../", "হোম"), ("index.html", "পেমেন্ট"), ("#", name)],
-            "payment",
-        )
+        + exp("প্রথম bKash ডিপোজিটে ৳১০০–৫০০ দিয়ে টেস্ট করি: TrxID ম্যাচ ও ব্যালেন্স ক্রেডিট দেখে তারপর বড় অ্যামাউন্ট। নাম মিল না থাকলে উইথড্র আগে ঠিক করাই।"),
+        [("../", "হোম"), ("index.html", "পেমেন্ট"), ("#", "bKash")],
+        "payment",
+    )
 
-    pay_method("bkash.html", "bKash", "bKash", "৳100–25,000", "Max +1%",
-               "<p>bKash বাংলাদেশের সবচেয়ে কমন ডিপোজিট চ্যানেলগুলোর একটি। নম্বর/অ্যাকাউন্ট নাম ভুল হলে ডিপোজিট ডিলে হতে পারে।</p>")
-    pay_method("nagad.html", "Nagad", "Nagad", "৳100–50,000", "Max +1%",
-               "<p>Nagad-এর আপার লিমিট bKash-এর চেয়ে বেশি (৳50,000 পর্যন্ত) — বড় ডিপোজিটে সুবিধা হতে পারে।</p>")
-    pay_method("rocket.html", "Rocket", "Rocket", "৳100–30,000", "Max +1%",
-               "<p>Rocket (DBBL মোবাইল ব্যাংকিং) অনেক ইউজারের সেকেন্ডারি অপশন। লিমিট ৳100–30,000।</p>")
+    page(
+        "payment/nagad.html",
+        "JitaWin Nagad Deposit &amp; Withdraw Guide Bangladesh",
+        "JitaWin Nagad deposit guide: higher limit ৳100–50,000, fee max +1%. When to choose Nagad over bKash for Bangladesh.",
+        "JitaWin Nagad ডিপোজিট ও উইথড্র",
+        "bKash-এর চেয়ে বেশি আপার লিমিট · ৳100–50,000 · ফি Max +1%।",
+        toc([("when", "কখন Nagad"), ("summary", "সারাংশ"), ("steps", "ধাপ"), ("tips", "টিপস"), ("wd", "উইথড্র")])
+        + """
+          <h2 id="when">কখন Nagad বেছে নেবেন</h2>
+          <p>Nagad-এর ডিপোজিট আপার লিমিট <strong class="text-gold">৳50,000</strong> — bKash (৳25,000) বা Rocket (৳30,000)-এর চেয়ে বেশি। এক ট্রানে বড় টপ-আপ, VIP টার্গেট, বা স্পোর্টস/ওয়েলকাম ক্যাপ কাছাকাছি ডিপোজিটে অনেকে Nagad ব্যবহার করে।</p>
+          <h2 id="summary">সারাংশ</h2>
+          <ul>
+            <li>মেথড: <strong class="text-white">Nagad</strong></li>
+            <li>ডিপোজিট লিমিট: <strong class="text-gold">৳100–50,000</strong></li>
+            <li>ফি: Max +1%</li>
+            <li>মিনিমাম ফ্লোর: ৳১০০</li>
+          </ul>
+          <h2 id="steps">ডিপোজিট ধাপ (Nagad-স্পেসিফিক)</h2>
+          <ol>
+            <li>Deposit মেনু → <strong class="text-white">Nagad</strong> (bKash আইকনে ক্লিক করবেন না)</li>
+            <li>অ্যামাউন্ট — ৳25,000-এর বেশি হলে bKash সীমা পার হতে পারে; Nagad লিমিট চেক করুন</li>
+            <li>প্ল্যাটফর্মের নির্দেশিত Nagad নম্বর/ইনভয়েসে পাঠান</li>
+            <li>Nagad অ্যাপে সফল SMS/হিস্ট্রি রাখুন</li>
+            <li>ওয়ালেট ব্যালেন্স রিফ্রেশ — ডিলে হলে TrxID দিয়ে সাপোর্ট</li>
+          </ol>
+          <figure class="content-figure">
+            <img src="../assets/images/guide-deposit-steps.webp" alt="JitaWin deposit flow also used for Nagad method" width="1200" height="900" loading="lazy" decoding="async" />
+            <figcaption>সাধারণ ডিপোজিট UI ফ্লো — মেথড হিসেবে Nagad বেছে নিন</figcaption>
+          </figure>
+          <h2 id="tips">Nagad টিপস</h2>
+          <ul>
+            <li>বড় ডিপোজিটের আগে KYC শেষ — নাহলে উইথড্র আটকে «বড় ব্যালেন্স আছে কিন্তু তুলতে পারছি না»</li>
+            <li>৬% ডায়মন্ড টপ-আপ ইত্যাদি শুধু নির্দিষ্ট গেম প্রোভাইডারে; USDT নয় — bKash/Nagad ফিয়াটে প্রযোজ্য কিনা অফার পেজ দেখুন</li>
+            <li>দিনের bKash লিমিট শেষ হলে Nagad ব্যাকআপ হিসেবে কাজ করে</li>
+          </ul>
+          <h2 id="wd">উইথড্র নোট</h2>
+          <ul>
+            <li>KYC + ওয়েজারিং ক্লিয়ার না হলে রিজেক্ট কমন — <a href="withdrawal-faq.html">উইথড্র FAQ</a></li>
+            <li>উইথড্র সিঙ্গেল রেঞ্জ ≈ ৳100–25,000 (অ্যাক্টিভিটিভেদে)</li>
+            <li>Nagad অ্যাকাউন্ট হোল্ডার নাম প্রোফাইলের সাথে মিলান</li>
+          </ul>
+          <div class="callout callout-gold">এই সাইট পেমেন্ট প্রসেস করে না। তুলনা: <a href="bkash.html">bKash</a> · <a href="rocket.html">Rocket</a></div>
+"""
+        + exp("৳30k+ একসাথে পাঠাতে চাইলে bKash দুই ট্রানের ঝামেলা এড়াতে Nagad টেস্ট করেছি — আগে ছোট অ্যামাউন্ট, তারপর ফুল লিমিট। বোনাস সিলেক্ট ছাড়া ক্লিন ডিপোজিট উইথড্র শেখার জন্য ভালো।"),
+        [("../", "হোম"), ("index.html", "পেমেন্ট"), ("#", "Nagad")],
+        "payment",
+    )
+
+    page(
+        "payment/rocket.html",
+        "JitaWin Rocket Deposit &amp; Withdraw Guide Bangladesh",
+        "JitaWin Rocket (DBBL) deposit: limit ৳100–30,000, fee max +1%. Backup payment method tips for Bangladesh.",
+        "JitaWin Rocket ডিপোজিট ও উইথড্র",
+        "DBBL মোবাইল ব্যাংকিং · লিমিট ৳100–30,000 · ফি Max +1% · সেকেন্ডারি চ্যানেল।",
+        toc([("role", "Rocket-এর জায়গা"), ("summary", "সারাংশ"), ("steps", "ধাপ"), ("issues", "সমস্যা"), ("wd", "উইথড্র")])
+        + """
+          <h2 id="role">Rocket কখন কাজে লাগে</h2>
+          <p>Rocket (Dutch-Bangla Bank মোবাইল ব্যাংকিং) অনেক ইউজারের <strong class="text-white">সেকেন্ডারি</strong> অপশন — bKash/Nagad ডাউন, লিমিট শেষ, বা শুধু Rocket ব্যালেন্স থাকলে। JitaWin লিমিট <strong class="text-gold">৳100–30,000</strong>, bKash-এর মাঝামাঝি ও Nagad-এর নিচে।</p>
+          <h2 id="summary">সারাংশ</h2>
+          <ul>
+            <li>মেথড: <strong class="text-white">Rocket</strong></li>
+            <li>ডিপোজিট লিমিট: <strong class="text-gold">৳100–30,000</strong></li>
+            <li>ফি: Max +1%</li>
+            <li>মিনিমাম: ৳১০০</li>
+          </ul>
+          <h2 id="steps">ডিপোজিট ধাপ</h2>
+          <ol>
+            <li>Deposit → <strong class="text-white">Rocket</strong> সিলেক্ট</li>
+            <li>অ্যামাউন্ট ৳100–30,000</li>
+            <li>প্ল্যাটফর্মের দেখানো Rocket অ্যাকাউন্ট/ইনস্ট্রাকশন ফলো করুন</li>
+            <li>Rocket PIN/OTP দিয়ে কনফার্ম</li>
+            <li>রেফারেন্স নম্বর সেভ করুন</li>
+          </ol>
+          <figure class="content-figure">
+            <img src="../assets/images/guide-deposit-steps.webp" alt="JitaWin deposit menu flow applicable to Rocket" width="1200" height="900" loading="lazy" decoding="async" />
+            <figcaption>UI ফ্লো একই — মেথড তালিকা থেকে Rocket বেছে নিন</figcaption>
+          </figure>
+          <h2 id="issues">Rocket-স্পেসিফিক মনোযোগ</h2>
+          <ul>
+            <li>অ্যাকাউন্ট নম্বর ফরম্যাট bKash-এর থেকে আলাদা — কপি-পেস্ট ডাবল-চেক</li>
+            <li>ব্যাংক সাইড মেইনটেন্যান্স/রাতের ডিলে হতে পারে; ধৈর্য + Trx রেকর্ড</li>
+            <li>শুধু Rocket থাকলেও KYC ও ওয়েজারিং নিয়ম একই</li>
+          </ul>
+          <h2 id="wd">উইথড্র</h2>
+          <ul>
+            <li>প্রোফাইল নাম ↔ Rocket অ্যাকাউন্ট হোল্ডার মিল</li>
+            <li>ওয়েজারিং বাকি থাকলে রিজেক্ট — <a href="../promotions/wagering-explained.html">হিসাব গাইড</a></li>
+            <li>সমস্যা হলে <a href="withdrawal-faq.html">উইথড্র FAQ</a> চেকলিস্ট</li>
+          </ul>
+          <div class="callout callout-gold">প্রাইমারি তুলনা: <a href="bkash.html">bKash</a> · <a href="nagad.html">Nagad</a>। এই সাইট পেমেন্ট প্রসেস করে না।</div>
+"""
+        + exp("Rocket আমি ব্যাকআপ চ্যানেল হিসেবে রাখি: bKash অ্যাপ ইস্যু হলেও ডিপোজিট বন্ধ না হয়। প্রথমবার ৳১০০ টেস্ট + রেফারেন্স নম্বর সেভ বাধ্যতামূলক করি।"),
+        [("../", "হোম"), ("index.html", "পেমেন্ট"), ("#", "Rocket")],
+        "payment",
+    )
 
     page(
         "payment/crypto.html",
@@ -631,16 +761,30 @@ def build_all():
         "JitaWin Promotions Bangladesh — Bonus, Cashback, VIP",
         "JitaWin promo overview: welcome bonus, daily/weekly cashback, wagering rules and VIP. Bangladesh player guide.",
         "প্রমোশন ও বোনাস ওভারভিউ",
-        "ওয়েলকাম, রিবেট, VIP — সবকটিতেই ওয়েজারিং আছে। নিয়ম পড়ে নিন।",
+        "ওয়েলকাম, রিবেট, VIP — সবকটিতেই ওয়েজারিং আছে। কোন অফার কখন নেবেন।",
         """
           <div class="callout callout-warn mb-4">এক অ্যাকাউন্ট · অফার স্ট্যাক নয় · জালিয়াতি/মাল্টি অ্যাকাউন্টে লক ও ফান্ড বাজেয়াপ্ত হতে পারে।</div>
+          <p>প্রমো বেছে নেওয়ার আগে তিন প্রশ্ন: (1) কোন গেম ক্যাটাগরি? (2) ওয়েজার কত x? (3) ম্যাক্স উইথড্র ক্যাপ কত? নিচের পেজগুলো সেই প্রশ্নের উত্তর দেয়।</p>
+          <h2>অফার টাইপ তুলনা</h2>
+          <div class="table-wrap table-responsive mb-3">
+            <table class="table table-jw table-striped mb-0">
+              <thead><tr><th>টাইপ</th><th>কঠিনতা (ওয়েজার)</th><th>নোট</th></tr></thead>
+              <tbody>
+                <tr><td>ডেইলি স্লট রিবেট</td><td>1x — হালকা</td><td>লসের % ফেরত</td></tr>
+                <tr><td>ওয়েলকাম (স্লট/স্পোর্টস…)</td><td>15–20x</td><td>ক্যাপ ও ম্যাক্স WD আছে</td></tr>
+                <tr><td>উইকলি 100%</td><td>30x — ভারী</td><td>সপ্তাহে একবার · ক্যাটাগরি লক</td></tr>
+                <tr><td>VIP রিওয়ার্ড</td><td>10–20x</td><td>লেভেল আপগ্রেড/সাপ্তাহিক/মাসিক</td></tr>
+              </tbody>
+            </table>
+          </div>
 """
         + cards("", [
-            ("welcome-bonus.html", "bi-gift", "ওয়েলকাম / ফার্স্ট ডিপোজিট", "Slots/Fish/Sports/Crash"),
-            ("cashback.html", "bi-arrow-repeat", "ডেইলি ও উইকলি রিবেট", "১০% স্লট · ৬% উইকলি"),
+            ("welcome-bonus.html", "bi-gift", "ওয়েলকাম / ফার্স্ট ডিপোজিট", "Slots/Fish/Sports/Crash টেবিল"),
+            ("cashback.html", "bi-arrow-repeat", "ডেইলি ও উইকলি রিবেট", "১০% স্লট · ৬% উইকলি · টপ-আপ"),
             ("wagering-explained.html", "bi-calculator", "ওয়েজারিং ব্যাখ্যা", "উদাহরণসহ টার্নওভার"),
             ("vip.html", "bi-award", "VIP ১–৩০", "আপগ্রেড, উইকলি, মান্থলি"),
-        ]),
+        ])
+        + exp("প্রথমে ওয়েজারিং পেজ পড়ে তারপর ওয়েলকাম নেওয়ার পরামর্শ দিই — উল্টোটা করলে «বোনাস ফাঁদ» মনে হয়।"),
         [("../", "হোম"), ("#", "প্রমোশন")],
         "promotions",
     )
@@ -650,8 +794,9 @@ def build_all():
         "JitaWin Welcome Bonus Bangladesh — First Deposit Offers",
         "JitaWin new member welcome bonus: slots ৳100 min 20x, fish, sports up to ৳5000, crash 50%. Full table.",
         "নতুন মেম্বার ফার্স্ট ডিপোজিট বোনাস",
-        "একবারের ওয়েলকাম সিরিজ — ক্যাটাগরিভেদে লিমিট আলাদা।",
+        "একবারের ওয়েলকাম সিরিজ — ক্যাটাগরিভেদে লিমিট আলাদা; স্ট্যাক নয়।",
         """
+          <p>নতুন অ্যাকাউন্টে সাধারণত <strong class="text-white">একবার</strong> ফার্স্ট-ডিপোজিট/ওয়েলকাম সিরিজ থেকে একটি ক্যাটাগরি বেছে নিতে হয়। স্পোর্টস ক্যাপ বেশি মানেই «সবচেয়ে লাভ» নয় — ওয়েজার ও ম্যাক্স WD হিসাব করুন।</p>
           <div class="table-wrap table-responsive mb-3">
             <table class="table table-jw table-striped mb-0">
               <thead><tr><th>ক্যাটাগরি</th><th>মিন</th><th>বোনাস ক্যাপ</th><th>ম্যাক্স WD</th><th>ওয়েজার</th></tr></thead>
@@ -663,9 +808,16 @@ def build_all():
               </tbody>
             </table>
           </div>
-          <div class="callout callout-gold">উদাহরণ (Slots 100% ধরে): ৳500 ডিপোজিট + ৳500 বোনাস = ৳1,000; 20x = ৳20,000 বেট ক্লিয়ার করতে হতে পারে (প্রমো রুল অনুযায়ী)।</div>
+          <h2>কীভাবে বেছে নেবেন</h2>
+          <ul>
+            <li><strong class="text-white">শুধু টেস্ট</strong> — স্লট মিন ৳100, ছোট ক্যাপ</li>
+            <li><strong class="text-white">ক্রিকেট ফোকাস</strong> — স্পোর্টস; 20x × (ডিপোজিট+বোনাস বেস) আগে গুনুন</li>
+            <li><strong class="text-white">ফিশিং পছন্দ</strong> — Fish টেবিল; স্লট বোনাস দিয়ে ফিশিং করবেন না</li>
+            <li><strong class="text-white">Crash</strong> — 15x দেখে সহজ মনে হলেও ভোলাটিলিটি বেশি</li>
+          </ul>
+          <div class="callout callout-gold">উদাহরণ (Slots 100% ধরে): ৳500 ডিপোজিট + ৳500 বোনাস = ৳1,000; 20x = ৳20,000 বেট ক্লিয়ার করতে হতে পারে (প্রমো রুল অনুযায়ী)। আরও: <a href="wagering-explained.html">ওয়েজারিং গাইড</a>।</div>
 """
-        + exp("স্পোর্টস ওয়েলকাম ক্যাপ বেশি দেখে অনেকে নেয় — ওয়েজার 20x হিসাব না করলে উইথড্র দীর্ঘ হয়।"),
+        + exp("স্পোর্টস ওয়েলকাম ক্যাপ বেশি দেখে অনেকে নেয় — ওয়েজার 20x হিসাব না করলে উইথড্র দীর্ঘ হয়। প্রথমে ক্যালকুলেটর, তারপর ক্লিক।"),
         [("../", "হোম"), ("index.html", "প্রমোশন"), ("#", "ওয়েলকাম")],
         "promotions",
     )
@@ -762,59 +914,235 @@ def build_all():
     page(
         "games/index.html",
         "JitaWin Games Bangladesh — Slots Live Sports Fishing Bingo",
-        "JitaWin game categories and providers: slots, live casino, cricket sports, fishing, bingo for Bangladesh players.",
+        "JitaWin game categories for Bangladesh: slots, live casino, cricket sports, fishing, bingo — providers, promos and how to choose.",
         "গেম ক্যাটাগরি ও প্রোভাইডার",
-        "স্লট থেকে ক্রিকেট স্পোর্টস — কোন সেকশনে কী পাবেন।",
-        cards("", [
-            ("slots.html", "bi-grid-3x3-gap", "Slot", "JILI, PG, JDB, PP…"),
-            ("live-casino.html", "bi-suit-spade", "Live Casino", "EVO, SEXY, SA…"),
-            ("sports.html", "bi-trophy", "Sport / ক্রিকেট", "9W, SABA, CMD…"),
-            ("fishing.html", "bi-water", "Fisher", "JILI, JDB, FC…"),
-            ("bingo.html", "bi-circle", "Bingo", "R88, JDB, JILI…"),
+        "স্লট, লাইভ, ক্রিকেট স্পোর্টস, ফিশিং, বিঙ্গো — কোন সেকশন কখন, কোন বোনাসের সাথে মিলে।",
+        """
+          <p>JitaWin-এ গেম লবি ক্যাটাগরি অনুযায়ী ভাগ। নিচের গাইড শুধু «লিস্ট» নয় — বাংলাদেশি ইউজার কোন সেকশনে বেশি সময় কাটায়, কোন ওয়েলকাম/রিবেট কোন ক্যাটাগরিতে লেগে, সেই সিদ্ধান্ত ফ্রেমওয়ার্ক।</p>
+          <h2>দ্রুত সিদ্ধান্ত টেবিল</h2>
+          <div class="table-wrap table-responsive mb-3">
+            <table class="table table-jw table-striped mb-0">
+              <thead><tr><th>ক্যাটাগরি</th><th>কার জন্য</th><th>বোনাস নোট</th></tr></thead>
+              <tbody>
+                <tr><td>Slots</td><td>দ্রুত সেশন, রিবেট/ডেইলি ক্যাশব্যাক</td><td>ওয়েলকাম মিন ৳100 · কিছু প্রমোতে JILI এক্সক্লুড</td></tr>
+                <tr><td>Sports</td><td>ক্রিকেট/IPL ফলোয়ার</td><td>ওয়েলকাম ক্যাপ বেশি · 20x হিসাব জরুরি</td></tr>
+                <tr><td>Live</td><td>ডিলার টেবিল (Baccarat, DT…)</td><td>প্রোমো কভারেজ প্রোভাইডারভেদে ভিন্ন</td></tr>
+                <tr><td>Fish</td><td>স্কিল-স্টাইল আর্কেড শ্যুটার</td><td>আলাদা ওয়েলকাম/উইকলি টেবিল</td></tr>
+                <tr><td>Bingo / Other</td><td>বিঙ্গো + Crash/Table/Arcade</td><td>Crash-এ আলাদা 50% ওয়েলকাম থাকতে পারে</td></tr>
+              </tbody>
+            </table>
+          </div>
+"""
+        + cards("", [
+            ("slots.html", "bi-grid-3x3-gap", "Slot", "JILI, PG, JDB, PP — রিবেট ও JILI নোট"),
+            ("live-casino.html", "bi-suit-spade", "Live Casino", "EVO, SEXY — Baccarat/DT"),
+            ("sports.html", "bi-trophy", "Sport / ক্রিকেট", "9W, SABA — ওয়েলকাম হিসাব"),
+            ("fishing.html", "bi-water", "Fisher", "JILI/JDB ফিশ — আলাদা বোনাস"),
+            ("bingo.html", "bi-circle", "Bingo ও Other", "R88, Crash, Arcade"),
         ])
         + """
           <h2>জনপ্রিয় / লোকালাইজড টাইটেল (উদাহরণ)</h2>
-          <p>Lucky Ace, Fortune Gems 2, SuperAce, Piggy Win, Wild Bandito ইত্যাদি — JILI/JDB/PG/PS কোলাব।</p>
-""",
+          <p>Lucky Ace, Fortune Gems 2, SuperAce, Piggy Win, Wild Bandito, Magic Ace Owin — JILI/JDB/PG/PS কোলাব টাইটেল লবিতে দেখা যায়। «সহজ জয়» গ্যারান্টি নেই; RTP/ভোলাটিলিটি গেমভেদে আলাদা।</p>
+          <h2>খেেলার আগে ৩ চেক</h2>
+          <ol>
+            <li>যে প্রোমো নিয়েছেন সেটা কোন ক্যাটাগরিতে বৈধ?</li>
+            <li>JILI বা নির্দিষ্ট প্রোভাইডার এক্সক্লুড কিনা?</li>
+            <li>ওয়েজারিং বেস (শুধু বোনাস vs ডিপোজিট+বোনাস) T&amp;C-তে কী?</li>
+          </ol>
+"""
+        + exp("নতুনকে আগে এক ক্যাটাগরি বেছে ছোট সেশন করতে বলি — একসাথে সব লবি ঘুরলে বোনাস নিয়ম মিশে যায়।"),
         [("../", "হোম"), ("#", "গেমস")],
         "games",
     )
 
-    games = [
-        ("slots.html", "Slots", "JitaWin Slots — JILI PG JDB Providers", "bi-grid-3x3-gap",
-         "JILI, JDB, FC, VP, PG, FS, SG, PP, PS, BNG, RT, HB, KA, JOKER, EVOPLAY, RELAX, PLAY8, HS",
-         "স্লট সেকশনে ডজনখানেক প্রোভাইডার। ওয়েলকাম/রিবেট অনেক সময় স্লট-কেন্দ্রিক — JILI এক্সক্লুশন কিছু প্রমোতে আছে কিনা চেক করুন।"),
-        ("live-casino.html", "Live Casino", "JitaWin Live Casino — Baccarat Dragon Tiger", "bi-suit-spade",
-         "EVO, SEXY, HRLIVE, MJ, SA, PT, BETGAMES, EZ, PP, SABA, BG, TVBET",
-         "থিম: Baccarat, AndarBahar, DragonTiger, Roulette, SicBo, Poker ইত্যাদি।"),
-        ("sports.html", "Sport / Cricket", "JitaWin Cricket &amp; Sports Betting Bangladesh", "bi-trophy",
-         "9W, SABA, CMD, DIGITAIN, AP",
-         "বাংলাদেশে ক্রিকেট/IPL ডিমান্ড বেশি। স্পোর্টস ওয়েলকাম বোনাস আলাদা টেবিলে — ওয়েজারিং পড়ুন।"),
-        ("fishing.html", "Fisher Game", "JitaWin Fishing Games Guide", "bi-water",
-         "SG, JOKER, FC, R88, FS, JDB, KA, YB, JILI, PT, PS",
-         "ফিশিংয়ের আলাদা ওয়েলকাম/উইকলি বোনাস ক্যাটাগরি থাকতে পারে।"),
-        ("bingo.html", "Bingo", "JitaWin Bingo Games", "bi-circle",
-         "R88, JDB, KM, YB, JILI",
-         "বিঙ্গো ছাড়াও Other Game-এ Crash / Table / Arcade / E-Sport থাকতে পারে।"),
-    ]
-    for fn, name, title_en, icon, providers, blurb in games:
-        page(
-            f"games/{fn}",
-            f"{title_en}",
-            f"JitaWin {name} providers and tips for Bangladesh players. List: {providers[:80]}…",
-            f"{name}",
-            blurb,
-            f"""
-          <div class="icon-box mb-3"><i class="bi {icon}" aria-hidden="true"></i></div>
-          <h2>প্রোভাইডার তালিকা</h2>
-          <p class="text-muted-jw">{providers}</p>
-          <p>{blurb}</p>
-          <p><a class="btn btn-jw-green" href="{CTA_HOME}" rel="nofollow sponsored noopener" target="_blank">প্ল্যাটফর্মে গেম দেখুন</a></p>
+    page(
+        "games/slots.html",
+        "JitaWin Slots — JILI PG JDB Providers",
+        "JitaWin slots guide for Bangladesh: providers JILI PG JDB PP, welcome/rebate fit, JILI exclusion notes, popular titles.",
+        "স্লট গেমস — প্রোভাইডার ও বোনাস ফিট",
+        "ডজনখানেক প্রোভাইডার · ডেইলি রিবেট প্রায়ই স্লট-কেন্দ্রিক · কিছু প্রমোতে JILI এক্সক্লুশন।",
+        toc([("who", "কার জন্য"), ("prov", "প্রোভাইডার"), ("promo", "প্রোমো ফিট"), ("titles", "টাইটেল"), ("tips", "টিপস")])
+        + f"""
+          <div class="icon-box mb-3"><i class="bi bi-grid-3x3-gap" aria-hidden="true"></i></div>
+          <h2 id="who">স্লট সেকশন কার জন্য</h2>
+          <p>ছোট সেশন, মোবাইলে দ্রুত রাউন্ড, এবং <a href="../promotions/cashback.html">ডেইলি/উইকলি রিবেট</a>-এর বড় অংশ স্লট লসের সাথে যুক্ত। নতুন মেম্বার ওয়েলকামে স্লট টেবিল মিন ডিপোজিট ৳100 — অন্য ক্যাটাগরির চেয়ে কম এন্ট্রি।</p>
+          <h2 id="prov">প্রোভাইডার তালিকা</h2>
+          <p class="text-muted-jw">JILI, JDB, FC, VP, PG, FS, SG, PP, PS, BNG, RT, HB, KA, JOKER, EVOPLAY, RELAX, PLAY8, HS</p>
+          <p>সব প্রোভাইডার সব বোনাসে কাউন্ট হয় না। উইকলি 100% স্লট অফারে <strong class="text-white">VIP3+</strong> ও <strong class="text-white">JILI বাদ</strong> থাকতে পারে — অফার টেক্সট পড়ুন।</p>
+          <h2 id="promo">কোন প্রোমো স্লটের সাথে মিলে</h2>
+          <ul>
+            <li>ওয়েলকাম Slots: মিন ৳100, ক্যাপ ৳1,000, ম্যাক্স WD ৳2,000, 20x</li>
+            <li>ডেইলি স্লট রিবেট: লসের ২–১০%, ওয়েজার 1x (হালকা)</li>
+            <li>৬% ডায়মন্ড টপ-আপ: JDB/JILI/PS/PG · USDT নয়</li>
+          </ul>
+          <h2 id="titles">লোকালাইজড / জনপ্রিয় টাইটেল (উদাহরণ)</h2>
+          <p>Super Ace, Fortune Gems 2, Lucky Ace, Piggy Win, Wild Bounty Showdown, Wild Bandito — লবিতে «JitaWin x প্রোভাইডার» লেবেল দেখা যেতে পারে। এগুলো মার্কেটিং হাইলাইট; জয়ের গ্যারান্টি নয়।</p>
+          <h2 id="tips">ব্যবহারিক টিপস</h2>
+          <ul>
+            <li>বেট সাইজ ওয়েজারিং টার্গেটের সাথে মিলিয়ে নিন — খুব ছোট বেটে 20x দীর্ঘ</li>
+            <li>এক প্রোমোর মধ্যে প্রোভাইডার সুইচ করলে অবৈধ বেট হতে পারে</li>
+            <li>রিবেট 1x vs ওয়েলকাম 20x — আলাদা হিসাব</li>
+          </ul>
+          <p><a class="btn btn-jw-green" href="{CTA_HOME}" rel="nofollow sponsored noopener" target="_blank">প্ল্যাটফর্মে স্লট লবি</a></p>
 """
-            + exp("গেম «সহজ জয়» গ্যারান্টি দিই না — শুধু ক্যাটাগরি ও প্রোমো ফিট বুঝিয়ে দিই।"),
-            [("../", "হোম"), ("index.html", "গেমস"), ("#", name)],
-            "games",
-        )
+        + exp("স্লট ওয়েলকাম ৳100 মিন দেখে অনেকে নেয় — 20x হিসাব না করলে উইথড্র দীর্ঘ হয়। JILI বাদ থাকা অফারে PG/JDB বেছে নেওয়ার কথা আগে বলে দিই।"),
+        [("../", "হোম"), ("index.html", "গেমস"), ("#", "Slots")],
+        "games",
+    )
+
+    page(
+        "games/live-casino.html",
+        "JitaWin Live Casino — Baccarat Dragon Tiger",
+        "JitaWin live casino for Bangladesh: EVO SEXY SA providers, baccarat, dragon tiger, andar bahar tips and promo notes.",
+        "লাইভ ক্যাসিনো — Baccarat, Dragon Tiger ও আরও",
+        "রিয়েল ডিলার টেবিল · EVO/SEXY ইত্যাদি · থিম ও প্রোমো কভারেজ আলাদা।",
+        toc([("what", "কী পাবেন"), ("prov", "প্রোভাইডার"), ("games", "জনপ্রিয় গেম"), ("promo", "প্রোমো"), ("tips", "টিপস")])
+        + f"""
+          <div class="icon-box mb-3"><i class="bi bi-suit-spade" aria-hidden="true"></i></div>
+          <h2 id="what">লাইভ সেকশন কী</h2>
+          <p>স্লটের মতো RNG রিল নয় — স্ট্রিমিং ডিলার টেবিল। বাংলাদেশি ইউজারদের মধ্যে Baccarat, Dragon Tiger, Andar Bahar, Roulette, Sic Bo চাহিদা দেখা যায়। সেশন ধীর; বেট লিমিট টেবিলভেদে আলাদা।</p>
+          <h2 id="prov">প্রোভাইডার</h2>
+          <p class="text-muted-jw">EVO, SEXY, HRLIVE, MJ, SA, PT, BETGAMES, EZ, PP, SABA, BG, TVBET</p>
+          <p>প্রোভাইডার বদলালে UI, টেবিল লিমিট ও কখনো বোনাস কন্ট্রিবিউশন বদলায় — ওয়েজারিং প্রগ্রেসে কোন গেম ১০০% কাউন্ট করে T&amp;C দেখুন।</p>
+          <h2 id="games">থিম / গেম টাইপ</h2>
+          <ul>
+            <li>Baccarat, Andar Bahar, Dragon Tiger</li>
+            <li>Roulette, Fantan, Sic Bo</li>
+            <li>NiuNiu, ZhaJinHua, BlackJack, Texas Hold'em, Poker</li>
+            <li>Big Six Wheel, Monopoly স্টাইল শো গেম</li>
+          </ul>
+          <h2 id="promo">প্রোমোর সাথে সম্পর্ক</h2>
+          <p>অনেক ওয়েলকাম/রিবেট <strong class="text-white">স্লট বা স্পোর্টস-কেন্দ্রিক</strong>। লাইভে বোনাস নিলে অবদান % কম বা বাদ থাকতে পারে। «সব গেমে চলে» ধরে নেবেন না।</p>
+          <h2 id="tips">টিপস</h2>
+          <ul>
+            <li>নেটওয়ার্ক দুর্বল হলে টেবিল ডিসকানেক্ট — স্টেবল Wi-Fi/ডাটা</li>
+            <li>মিনিমাম টেবিল বেট বাজেটের সাথে মিলান</li>
+            <li>লাইভ ≠ «নিশ্চিত জয়»; হাউস এজ আছে</li>
+          </ul>
+          <p><a class="btn btn-jw-green" href="{CTA_HOME}" rel="nofollow sponsored noopener" target="_blank">লাইভ লবি খুলুন</a></p>
+"""
+        + exp("লাইভ টেবিলে নতুনরা প্রায়ই উচ্চ মিন-বেট টেবিলে ঢোকে — আগে লো-লিমিট Baccarat/DT খুঁজে সেশন লম্বা করি। বোনাস থাকলে অবদান % আগে চেক।"),
+        [("../", "হোম"), ("index.html", "গেমস"), ("#", "Live Casino")],
+        "games",
+    )
+
+    page(
+        "games/sports.html",
+        "JitaWin Cricket &amp; Sports Betting Bangladesh",
+        "JitaWin sports betting Bangladesh: cricket/IPL demand, providers 9W SABA CMD, welcome bonus 20x example and responsible tips.",
+        "স্পোর্টস ও ক্রিকেট বেটিং",
+        "বাংলাদেশ মার্কেটে ক্রিকেট/IPL ডিমান্ড বেশি · আলাদা ওয়েলকাম টেবিল · 20x হিসাব জরুরি।",
+        toc([("bd", "BD কনটেক্সট"), ("prov", "প্রোভাইডার"), ("promo", "ওয়েলকাম"), ("howto", "কীভাবে বেট"), ("risk", "ঝুঁকি")])
+        + f"""
+          <div class="icon-box mb-3"><i class="bi bi-trophy" aria-hidden="true"></i></div>
+          <h2 id="bd">কেন ক্রিকেট আলাদা আলোচ্য</h2>
+          <p>বাংলাদেশি খেলোয়াড়দের সার্চ ও আগ্রহে ক্রিকেট (国内/IPL/T20) স্পষ্ট। স্পোর্টসবুক প্রি-ম্যাচ ও ইন-প্লে অডস দেয়; স্লটের মতো প্রতি সেকেন্ডে স্পিন নয় — ম্যাচ সময়সূচি ও মার্কেট (ম্যাচ উইনার, ওভার/আন্ডার ইত্যাদি) বুঝে বেট করতে হয়।</p>
+          <h2 id="prov">স্পোর্টস প্রোভাইডার</h2>
+          <p class="text-muted-jw">9W, SABA, CMD, DIGITAIN, AP</p>
+          <p>একাধিক স্পোর্টসবুক লবিতে থাকতে পারে — অডস ও মার্কেট কাভারেজ আলাদা। একই ম্যাচে একাধিক বুক তুলনা করা যায়, তবে বোনাস কোন বুকে বৈধ সেটা আলাদা নিয়ম।</p>
+          <h2 id="promo">স্পোর্টস ওয়েলকাম (রেফারেন্স)</h2>
+          <ul>
+            <li>মিন ডিপোজিট: ৳500</li>
+            <li>বোনাস ক্যাপ: ৳5,000</li>
+            <li>ম্যাক্স উইথড্র (প্রমো): ৳10,000</li>
+            <li>ওয়েজার: <strong class="text-gold">20x</strong></li>
+          </ul>
+          <p>উদাহরণ: ৳1,000 ডিপোজিট + ৳1,000 বোনাস ধরলে 20x ≈ ৳40,000 ভ্যালিড বেট (বেস রুল T&amp;C অনুযায়ী)। বিস্তারিত: <a href="../promotions/welcome-bonus.html">ওয়েলকাম টেবিল</a> · <a href="../promotions/wagering-explained.html">ওয়েজারিং</a>।</p>
+          <h2 id="howto">শুরুর ধাপ</h2>
+          <ol>
+            <li>স্পোর্টস লবি → ইভেন্ট/মার্কেট বেছে নিন</li>
+            <li>অডস ও স্টেক দিন — ব্যালেন্স ও বোনাস ওয়ালেট আলাদা থাকতে পারে</li>
+            <li>ইন-প্লেতে লাইন দ্রুত বদলায়; কনফার্ম আগে দেখুন</li>
+            <li>সেটেলমেন্ট পর উইথড্র/ওয়েজারিং প্রগ্রেস চেক</li>
+          </ol>
+          <h2 id="risk">ঝুঁকি ও দায়িত্ব</h2>
+          <ul>
+            <li>«লক্ষ টাকা জিতবেন» — মার্কেটিং নয়, গ্যারান্টি নয়; অডস অনুযায়ী প্রত্যাশিত ভ্যালু পরিবর্তনশীল</li>
+            <li>ম্যাচ-ফিক্সিং/সন্দেহজনক বেট ভয়েড হতে পারে</li>
+            <li>১৮+ · বাজেট লিমিট · <a href="../responsible-gambling/">দায়িত্বশীল গেমিং</a></li>
+          </ul>
+          <p><a class="btn btn-jw-green" href="{CTA_HOME}" rel="nofollow sponsored noopener" target="_blank">স্পোর্টসবুক খুলুন</a></p>
+"""
+        + exp("স্পোর্টস ওয়েলকাম ক্যাপ বেশি দেখে অনেকে নেয় — 20x না গুনে। আমি প্রথমে একটা ছোট pre-match বেট দিয়ে সেটেলমেন্ট+ওয়ালেট ফ্লো দেখাই, তারপর বোনাস।"),
+        [("../", "হোম"), ("index.html", "গেমস"), ("#", "Sport / Cricket")],
+        "games",
+    )
+
+    page(
+        "games/fishing.html",
+        "JitaWin Fishing Games Guide",
+        "JitaWin fishing games Bangladesh: providers JILI JDB FC, fish welcome bonus table, how fishing differs from slots.",
+        "ফিশিং গেমস — স্লট নয়, আলাদা ক্যাটাগরি",
+        "স্কিল-স্টাইল শ্যুটার · আলাদা ওয়েলকাম/উইকলি টেবিল · JILI এক্সক্লুশন কিছু অফারে।",
+        toc([("diff", "স্লট থেকে তফাত"), ("prov", "প্রোভাইডার"), ("promo", "বোনাস"), ("play", "কীভাবে খেলেন"), ("tips", "টিপস")])
+        + f"""
+          <div class="icon-box mb-3"><i class="bi bi-water" aria-hidden="true"></i></div>
+          <h2 id="diff">ফিশিং ≠ সাধারণ স্লট</h2>
+          <p>ফিশিং/ফিশার গেমে লক্ষ্য শ্যুট করে পয়েন্ট/মাল্টিপ্লায়ার ধরা — রিল স্পিন UI নয়। অনেকে স্লট ওয়েলকাম নিয়ে ফিশিং খেলে ওয়েজারিং না বাড়ার অভিযোগ করে; ক্যাটাগরি মিলিয়ে প্রোমো নিন।</p>
+          <h2 id="prov">প্রোভাইডার</h2>
+          <p class="text-muted-jw">SG, JOKER, FC, R88, FS, JDB, KA, YB, JILI, PT, PS</p>
+          <h2 id="promo">ফিশ-সম্পর্কিত বোনাস (রেফারেন্স)</h2>
+          <ul>
+            <li>ওয়েলকাম Fish: মিন ৳500, ক্যাপ ৳3,000, ম্যাক্স WD ৳6,000, 20x</li>
+            <li>উইকলি 100% Fish: মিন ৳500, ক্যাপ ৳1,000, 30x — কিছু অফারে JILI ফিশ বাদ</li>
+          </ul>
+          <p>স্লট ওয়েলকাম (মিন ৳100) দিয়ে ফিশিং টার্নওভার আশা করবেন না যদি রুল স্লট-অনলি হয়।</p>
+          <h2 id="play">সাধারণ প্লের ফ্লো</h2>
+          <ol>
+            <li>Fisher Game লবি → রুম/স্টেক বেছে নিন</li>
+            <li>অ্যামু/কয়েন ব্যালেন্স দেখে বুলেট/ক্যানন লেভেল</li>
+            <li>বড় টার্গেট = উচ্চ রিস্ক/রিওয়ার্ড; ব্যাংকরোল ম্যানেজ করুন</li>
+            <li>সেশন শেষে ব্যালেন্স ও বোনাস প্রগ্রেস চেক</li>
+          </ol>
+          <h2 id="tips">টিপস</h2>
+          <ul>
+            <li>মোবাইলে টাচ ল্যাগ থাকলে মিস শট বাড়ে — স্টেবল ডিভাইস</li>
+            <li>VIP/টপ-আপ অফারে প্রোভাইডার লিস্ট (JDB/JILI/PS/PG) মিলিয়ে নিন</li>
+            <li>«অটো শ্যুট» থাকলেও লস লিমিট নিজে সেট করুন</li>
+          </ul>
+          <p><a class="btn btn-jw-green" href="{CTA_HOME}" rel="nofollow sponsored noopener" target="_blank">ফিশিং লবি</a></p>
+"""
+        + exp("ফিশ ওয়েলকাম ৳500 মিন — স্লটের ৳100-এর চেয়ে বেশি। যারা শুধু টেস্ট করতে চায় তাদের আগে স্লট/ছোট ডিপোজিট, পরে ফিশ বোনাস।"),
+        [("../", "হোম"), ("index.html", "গেমস"), ("#", "Fisher Game")],
+        "games",
+    )
+
+    page(
+        "games/bingo.html",
+        "JitaWin Bingo Games",
+        "JitaWin bingo and other games: R88 JDB JILI bingo, plus crash table arcade esports categories for Bangladesh.",
+        "বিঙ্গো ও Other Game ক্যাটাগরি",
+        "বিঙ্গো প্রোভাইডার + Crash / Table / Arcade / E-Sport — আলাদা লবি লজিক।",
+        toc([("bingo", "বিঙ্গো"), ("other", "Other Game"), ("crash", "Crash নোট"), ("tips", "টিপস")])
+        + f"""
+          <div class="icon-box mb-3"><i class="bi bi-circle" aria-hidden="true"></i></div>
+          <h2 id="bingo">বিঙ্গো সেকশন</h2>
+          <p>বিঙ্গো কার্ড/ড্র স্টাইল গেম — স্লট বা স্পোর্টসবুক নয়। প্রোভাইডার উদাহরণ:</p>
+          <p class="text-muted-jw">R88, JDB, KM, YB, JILI</p>
+          <p>রাউন্ড টাইমিং ও কার্ড কেনাকাটা UI প্রোভাইডারভেদে আলাদা। বোনাস কন্ট্রিবিউশন কম হতে পারে — T&amp;C চেক।</p>
+          <h2 id="other">Other Game-এ আর কী থাকে</h2>
+          <p>প্ল্যাটফর্ম নেভে «Other Game»-এ চার ধরনের গ্রুপ দেখা যায়:</p>
+          <ul>
+            <li><strong class="text-white">Crash Games</strong> (ক্যাশ গেমস)</li>
+            <li><strong class="text-white">Table Games</strong> (টেবিল গেমস)</li>
+            <li><strong class="text-white">Arcade Games</strong> (আর্কেড)</li>
+            <li><strong class="text-white">E-Sport Games</strong> (ই-স্পোর্ট)</li>
+          </ul>
+          <p>প্রোভাইডার উদাহরণ: SPB, JILI, INOUT, JDB, KA, PP, EVO, YB, BGAMING, EVOPLAY, AUX, FUNKY, JOKER, SS, KM, RELAX, GEMINI, TG ইত্যাদি।</p>
+          <h2 id="crash">Crash ওয়েলকাম নোট</h2>
+          <p>নতুন মেম্বার <strong class="text-white">Crash 50%</strong> অফার: ব্যালেন্স মিন ৳500, ক্যাপ ৳1,000, ওয়েজার 15x, ম্যাক্স WD no cap (প্রমো টেবিল অনুযায়ী)। স্লট/স্পোর্টস ওয়েলকাম থেকে আলাদা — একসাথে স্ট্যাক নয়।</p>
+          <h2 id="tips">টিপস</h2>
+          <ul>
+            <li>Crash মাল্টিপ্লায়ারে «অবশ্যই ক্যাশআউট» গ্যারান্টি নেই — হাই রিস্ক</li>
+            <li>বিঙ্গো/আর্কেডে বোনাস % কম হলে ক্লিন ব্যালেন্সে খেলা সহজ</li>
+            <li>ই-স্পোর্ট মার্কেট স্পোর্টসবুক থেকে আলাদা লবি হতে পারে</li>
+          </ul>
+          <p><a class="btn btn-jw-green" href="{CTA_HOME}" rel="nofollow sponsored noopener" target="_blank">গেম লবি</a></p>
+"""
+        + exp("Crash 15x দেখে «স্লট 20x-এর চেয়ে সহজ» মনে হয় — ভোলাটিলিটি আলাদা। আমি আলাদা ছোট ব্যাংকরোল রাখতে বলি, মেইন ওয়ালেট মিশিয়ে না খেলতে।"),
+        [("../", "হোম"), ("index.html", "গেমস"), ("#", "Bingo")],
+        "games",
+    )
 
     # AFFILIATE
     page(
@@ -822,19 +1150,27 @@ def build_all():
         "JitaWin Affiliate &amp; Referral — Earn Commission Bangladesh",
         "JitaWin refer friends program: ৳88 referral, daily commission 0.10%/0.05%/0.025%, milestones. How to start.",
         "রেফারেল ও এজেন্ট কমিশন",
-        "তিন লেয়ার কমিশন + ৳88 রেফারেল + মাইলস্টোন।",
-        cards("", [
-            ("commission.html", "bi-percent", "কমিশন স্ট্রাকচার", "0.10% / 0.05% / 0.025% + ৳88"),
-            ("how-to-start.html", "bi-rocket-takeoff", "কীভাবে শুরু করবেন", "লিংক, QR, VIP3 শর্ত"),
-        ])
-        + """
+        "তিন লেয়ার কমিশন + ৳88 রেফারেল + মাইলস্টোন — গ্যারান্টি আয় নয়।",
+        """
+          <p>এই সেকশন যারা বন্ধু/কনটেন্ট দিয়ে JitaWin প্রমোট করতে চান তাদের জন্য। কমিশন <strong class="text-white">ডাউনলাইনের রিয়েল প্লে</strong>-এর সাথে যুক্ত — স্প্যাম ট্রাফিক বা একই ডিভাইস/IP ডুপ্লিকেট কাউন্ট নাও হতে পারে।</p>
           <h2>এক নজরে</h2>
           <ul>
-            <li>Daily commission: Tier1 0.10% · Tier2 0.05% · Tier3 0.025%</li>
-            <li>প্রতি সফল রেফার: ৳88 (VIP3+ রেফারার, শর্তসহ, 10x)</li>
-            <li>মাইলস্টোন মাসিক রিসেট</li>
+            <li>Daily commission: Tier1 <strong class="text-gold">0.10%</strong> · Tier2 0.05% · Tier3 0.025% (ডাউনলাইন দিনে ৳3,000+ ভ্যালিড টার্নওভার)</li>
+            <li>প্রতি সফল রেফার: <strong class="text-gold">৳88</strong> (রেফারার VIP3+, ৭ দিনের শর্ত, 10x)</li>
+            <li>মাইলস্টোন মাসিক রিসেট — শুধু সর্বোচ্চ টিয়ার</li>
           </ul>
-""",
+          <h2>কার জন্য উপযুক্ত</h2>
+          <ul>
+            <li>নিজে প্ল্যাটফর্ম ফ্লো (KYC, ডিপোজিট) বোঝেন</li>
+            <li>সৎভাবে ঝুঁকি ও ১৮+ বলে প্রমোট করতে রাজি</li>
+            <li>«প্রতিদিন লক্ষাধিক» টাইপ গ্যারান্টি দাবি করবেন না</li>
+          </ul>
+"""
+        + cards("", [
+            ("commission.html", "bi-percent", "কমিশন স্ট্রাকচার", "0.10% / 0.05% / 0.025% + ৳88 + মাইলস্টোন"),
+            ("how-to-start.html", "bi-rocket-takeoff", "কীভাবে শুরু করবেন", "VIP3, লিংক, QR, ৩০ দিন ক্লেইম"),
+        ])
+        + exp("প্রমোটারকে আগে নিজের ছোট ডিপোজিট+KYC শেষ করতে বলি — নাহলে ৳88 শর্ত ব্যাখ্যা করতে গিয়ে বিশ্বাসযোগ্যতা কমে।"),
         [("../", "হোম"), ("#", "রেফারেল")],
         "affiliate",
     )

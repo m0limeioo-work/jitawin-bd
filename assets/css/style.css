@@ -723,6 +723,32 @@ body {
   font-size: 0.92rem;
 }
 
+/* Author / last-verified (E-E-A-T signals) */
+.page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  font-size: 0.85rem;
+  color: var(--jw-muted);
+  margin-bottom: 0.5rem;
+}
+
+.page-meta .page-meta-sep {
+  opacity: 0.5;
+}
+
+.page-meta i {
+  color: var(--jw-gold);
+  margin-right: 0.2rem;
+}
+
+.page-how {
+  line-height: 1.55;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 /* CTA banner */
 .cta-banner {
   background: linear-gradient(135deg, rgba(0, 100, 0, 0.45), rgba(15, 23, 42, 0.9));
